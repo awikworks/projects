@@ -85,27 +85,78 @@
                   </style>
 				  <p class="siteSub">DIY/DIWO-based electronics laboratory initiated by Muhammad Zeian.</p>
 				  <p class="roleNote">Low Tech-High Five!</p>
-<div id="google_translate_element"></div>
-<div id="google_translate_element"></div>
-<h2>Awikworks Origin</h2>
-<p class="roleNote">The Four Horsemen of Awikworks Modulars</p>
-<div class="articleRight">
-						<div class="articleRightInner">
-							<img src="img/logoamp.jpg"/>
-							<style>.articleRightInner img {
-    								width: 100%;  /* Agar gambar mengikuti lebar container */
-    								max-width: 300px; /* Menentukan lebar maksimum */
-    								height: auto; /* Menjaga aspek rasio */
-    								display: block; /* Menghilangkan celah di bawah gambar */
-    								margin: auto; /* Agar gambar tetap di tengah */
-								}</style>
-						</div>
+					<div id="google_translate_element"></div>
+					<div id="google_translate_element"></div>
+					<h2>Awikworks Origin</h2>
+					<p class="roleNote">The Four Horsemen of Awikworks Modulars</p>
+					<div class="articleRight">
+					<style>
+            .slider-container {
+                position: relative;
+                width: 300px;  /* Ukuran tetap untuk kontainer */
+                height: 300px; /* Ukuran tetap untuk kontainer */
+                margin-left: 0;
+                overflow: hidden;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+            }
+
+            .slider {
+                display: flex; /* Menyusun gambar dalam satu baris */
+                transition: transform 0.5s ease-in-out;
+                width: 300px; /* Menyesuaikan dengan lebar 4 gambar 300px */
+            }
+
+            .slider img {
+                width: 100%; /* Gambar menyesuaikan lebar kontainer */
+                height: 100%; /* Gambar menyesuaikan tinggi kontainer */
+                object-fit: cover; /* Menjaga aspek rasio gambar agar tidak terdistorsi */
+            }
+
+            .prev, .next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            .prev { left: 0; }
+            .next { right: 0; }
+        </style>
+
+        <div class="slider-container">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="slider" id="slider">
+                <!-- Gambar yang akan dimasukkan dalam slider -->
+				<img src="img/origin/1-ori.jpg" alt="Slide 1">
+                <img src="img/origin/2-ori.jpg" alt="Slide 2">
+                <img src="img/origin/3-ori.jpg" alt="Slide 3">
+                <img src="img/origin/4-ori.jpg" alt="Slide 4">
+                <img src="img/origin/5-ori.jpg" alt="Slide 5">
+                <img src="img/origin/6-ori.jpg" alt="Slide 6">
+            </div>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <script>
+            let index = 0;
+
+            function moveSlide(step) {
+                const slides = document.querySelectorAll("#slider img");
+                index = (index + step + slides.length) % slides.length;
+                // Menyesuaikan transformasi berdasarkan lebar gambar
+                document.getElementById("slider").style.transform = `translateX(${-index * 300}px)`;
+            }
+        </script>	
 					</div>
 					<p>Starting from an interest in building a modular synthesizer independently, this project was initially named "Modular Miskin." However, over time, the name was felt to bring misfortune, leading to its change to "Awikworks" with the motto "low tech-high five." Equipped with open-source modules, Muzeian continued to develop his DIY synthesizer. In addition to purchasing electronic components directly, he often dismantled and modified various used electronic devices to be repurposed into new instruments.</p>
-					<span id="more-text" style="display: none;">
+					
 	  				<p>From this project, a sub-project called "AMPRRRONG" was born. Through AMPRRRONG, he recorded an EP in 2020, released by Anti Trust Record under the title Salamander Kodok Amprong: BAB I – The Shell Creatures. By 2023, the exploration of Awikworks Modular had entered its fourth stage of evolution, where several modules were assembled into a single compact unit.</p>
-					</span>
-    				<button id="read-more-btn" onclick="toggleText()" style="margin-bottom: 80px;">More</button>
+					
 		<h2>Gedrik Sequencer</h2>
 		<div class="articleRight">
 						<div class="articleRightInner">
