@@ -65,22 +65,22 @@
 				  <h1>Awikworks Projects</h1>
 				  <style>
         		.scroll-image-container {
-    max-height: 100px;
-    overflow-y: scroll;
-    border: 1px solid #ccc;
-    padding: 5px;
-    
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
+				max-height: 300px;
+				overflow-y: scroll;
+				border: 1px solid #ccc;
+				padding: 5px;
 
-.scroll-image-container img {
-    height: 300px; /
-    width: auto;
-    display: block;
-    margin: auto; 
-}
+				display: flex; 
+				justify-content: center; 
+				align-items: center; 
+			}
+
+			.scroll-image-container img {
+				height: 300px; /
+				width: auto;
+				display: block;
+				margin: auto; 
+			}
 
                   </style>
 				  <p class="siteSub">DIY/DIWO-based electronics laboratory initiated by Muhammad Zeian.</p>
@@ -88,75 +88,97 @@
 					<div id="google_translate_element"></div>
 					<div id="google_translate_element"></div>
 					<h2>Awikworks Origin</h2>
-					<p class="roleNote">The Four Horsemen of Awikworks Modulars</p>
-					<div class="articleRight">
-					<style>
-            .slider-container {
-                position: relative;
-                width: 300px;  /* Ukuran tetap untuk kontainer */
-                height: 300px; /* Ukuran tetap untuk kontainer */
-                margin-left: 0;
-                overflow: hidden;
-                border: 2px solid #ccc;
-                border-radius: 10px;
-            }
+<p class="roleNote">The Four Horsemen of Awikworks Modulars</p>
 
-            .slider {
-                display: flex; /* Menyusun gambar dalam satu baris */
-                transition: transform 0.5s ease-in-out;
-                width: 300px; /* Menyesuaikan dengan lebar 4 gambar 300px */
-            }
+<style>
+    /* Kontainer utama yang membungkus slider dan paragraf */
+    .content-container {
+        display: flex; /* Membuat elemen berada berdampingan */
+        justify-content: space-between; /* Menjaga jarak antara elemen */
+        align-items: flex-start; /* Menyelaraskan elemen di atas */
+        width: 100%; /* Membuat kontainer utama mengambil seluruh lebar */
+    }
 
-            .slider img {
-                width: 100%; /* Gambar menyesuaikan lebar kontainer */
-                height: 100%; /* Gambar menyesuaikan tinggi kontainer */
-                object-fit: cover; /* Menjaga aspek rasio gambar agar tidak terdistorsi */
-            }
+    /* Kontainer untuk slider */
+    .slider-container {
+        position: relative;
+        width: 300px; /* Lebar dan tinggi yang konstan untuk slider */
+        height: 300px;
+        overflow: hidden;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+    }
 
-            .prev, .next {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background-color: rgba(0, 0, 0, 0.5);
-                color: white;
-                border: none;
-                padding: 10px;
-                cursor: pointer;
-            }
+    .slider {
+        display: flex; /* Menyusun gambar dalam satu baris */
+        transition: transform 0.5s ease-in-out;
+        width: 1800px; /* Total lebar untuk 6 gambar (300px per gambar) */
+    }
 
-            .prev { left: 0; }
-            .next { right: 0; }
-        </style>
+    .slider img {
+        width: 300px; /* Gambar menyesuaikan lebar kontainer */
+        height: 300px; /* Gambar menyesuaikan tinggi kontainer */
+        object-fit: cover; /* Menjaga aspek rasio gambar agar tidak terdistorsi */
+    }
 
-        <div class="slider-container">
-            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-            <div class="slider" id="slider">
-                <!-- Gambar yang akan dimasukkan dalam slider -->
-				<img src="img/origin/1-ori.jpg" alt="Slide 1">
-                <img src="img/origin/2-ori.jpg" alt="Slide 2">
-                <img src="img/origin/3-ori.jpg" alt="Slide 3">
-                <img src="img/origin/4-ori.jpg" alt="Slide 4">
-                <img src="img/origin/5-ori.jpg" alt="Slide 5">
-                <img src="img/origin/6-ori.jpg" alt="Slide 6">
-            </div>
-            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    /* Tombol navigasi */
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10; /* Memastikan tombol berada di atas gambar */
+    }
+
+    .prev { left: 10px; } /* Memberikan ruang pada tombol kiri */
+    .next { right: 10px; } /* Memberikan ruang pada tombol kanan */
+
+    /* Kontainer untuk paragraf */
+    .text-container {
+        max-width: calc(100% - 320px); /* Membatasi lebar paragraf sesuai dengan ukuran slider */
+        padding: 0 10px; /* Padding di sisi kiri dan kanan */
+        line-height: 1.6; /* Memberikan jarak antar baris agar lebih nyaman dibaca */
+    }
+</style>
+
+<div class="content-container">
+    <!-- Kontainer untuk slider -->
+    <div class="slider-container">
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="slider" id="slider">
+            <img src="img/origin/1-ori.jpg" alt="Slide 1">
+            <img src="img/origin/2-ori.jpg" alt="Slide 2">
+            <img src="img/origin/3-ori.jpg" alt="Slide 3">
+            <img src="img/origin/4-ori.jpg" alt="Slide 4">
+            <img src="img/origin/5-ori.jpg" alt="Slide 5">
+            <img src="img/origin/6-ori.jpg" alt="Slide 6">
         </div>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
 
-        <script>
-            let index = 0;
+    <!-- Kontainer untuk teks/paragraf -->
+    <div class="text-container">
+        <p>Starting from an interest in building a modular synthesizer independently, this project was initially named "Modular Miskin." However, over time, the name was felt to bring misfortune, leading to its change to "Awikworks" with the motto "low tech-high five." Equipped with open-source modules, Muzeian continued to develop his DIY synthesizer. In addition to purchasing electronic components directly, he often dismantled and modified various used electronic devices to be repurposed into new instruments.</p>
 
-            function moveSlide(step) {
-                const slides = document.querySelectorAll("#slider img");
-                index = (index + step + slides.length) % slides.length;
-                // Menyesuaikan transformasi berdasarkan lebar gambar
-                document.getElementById("slider").style.transform = `translateX(${-index * 300}px)`;
-            }
-        </script>	
-					</div>
-					<p>Starting from an interest in building a modular synthesizer independently, this project was initially named "Modular Miskin." However, over time, the name was felt to bring misfortune, leading to its change to "Awikworks" with the motto "low tech-high five." Equipped with open-source modules, Muzeian continued to develop his DIY synthesizer. In addition to purchasing electronic components directly, he often dismantled and modified various used electronic devices to be repurposed into new instruments.</p>
-					
-	  				<p>From this project, a sub-project called "AMPRRRONG" was born. Through AMPRRRONG, he recorded an EP in 2020, released by Anti Trust Record under the title Salamander Kodok Amprong: BAB I – The Shell Creatures. By 2023, the exploration of Awikworks Modular had entered its fourth stage of evolution, where several modules were assembled into a single compact unit.</p>
-					
+        <p>From this project, a sub-project called "AMPRRRONG" was born. Through AMPRRRONG, he recorded an EP in 2020, released by Anti Trust Record under the title Salamander Kodok Amprong: BAB I – The Shell Creatures. By 2023, the exploration of Awikworks Modular had entered its fourth stage of evolution, where several modules were assembled into a single compact unit.</p>
+    </div>
+</div>
+
+<script>
+    let index = 0;
+
+    function moveSlide(step) {
+        const slides = document.querySelectorAll("#slider img");
+        index = (index + step + slides.length) % slides.length;
+        // Menyesuaikan transformasi berdasarkan lebar gambar
+        document.getElementById("slider").style.transform = `translateX(${-index * 300}px)`; /* Sesuaikan dengan lebar gambar */
+    }
+</script>
+
 		<h2>Gedrik Sequencer</h2>
 		<div class="articleRight">
 						<div class="articleRightInner">
@@ -169,7 +191,7 @@
     								margin: auto;
 								}</style>
 						</div>
-					</div>
+				  </div>
 					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					<span id="more-text" style="display: none;">
 	  				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -189,7 +211,7 @@
     								margin: auto;
 								}</style>
 						</div>
-					</div>
+				  </div>
 					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 					<span id="more-text" style="display: none;">
 	  				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
