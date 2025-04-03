@@ -155,8 +155,7 @@
 				justify-content: center;
 				gap: 10px;
 			}
-			.no-style-gif {
-    		all: unset;
+			
 			/* Responsiveness */
 				@media (max-width: 768px) {
 					.container {
@@ -168,7 +167,7 @@
 						max-width: 100%;
 					}
 				}
-				img {
+				img:not([src$=".gif"]) {
 				max-width: 300px;  /* Gambar tidak akan lebih besar dari 800px */
 				width: 100%;       /* Gambar akan mengikuti lebar kontainer */
 				height: auto;      /* Menjaga rasio aspek gambar agar tetap proporsional */
