@@ -283,7 +283,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 1.2em;
 }
 .article p.roleNote {
-	padding: 1em 0 0 1.6em;
+	padding: 0em 0 0 0em;
 	font-style: italic;
 }
 p.siteSub {
@@ -610,88 +610,54 @@ span.user {
 	#simpleSearch {
 		display: none;
 	}
-    .articleRightInner img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-        display: block;
-        margin: auto;
-    }
+/* Kotak utama */
+.box {
+    width: 900px; /* Lebar tetap */
+    height: 1000px; /* Tinggi tetap */
+    margin: 20px auto; /* Pusatkan di halaman */
+    padding: 20px; /* Beri jarak di dalam */
+    box-sizing: border-box; /* Padding tidak menambah ukuran total */
+    border: 3px solid #333; /* Tambahkan garis tepi */
+    border-radius: 10px; /* Agar lebih estetis */
+    background: #f9f9f9; /* Latar belakang */
+    overflow: hidden; /* Cegah konten keluar dari batas */
+}
 
-    .slider {
-        width: 300px;
-        height: 300px;
-        position: relative;
-        overflow: hidden;
-    }
+/* Slider dan konten diatur agar tidak keluar dari kotak */
+.articleRight {
+    max-height: 600px; /* Batasi tinggi agar tidak memenuhi kotak */
+    overflow-y: auto; /* Tambahkan scroll jika konten melebihi batas */
+}
 
-    .slides {
-        display: flex;
-        transition: transform 0.5s ease;
-    }
+/* Pengaturan slider */
+.slider {
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+}
 
-    .slide {
-        width: 300px;
-        height: 300px;
-        flex-shrink: 0;
-    }
+/* Gambar dalam slider */
+.slides .slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-    .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+/* Gaya untuk teks */
+h2 {
+    text-align: center;
+    font-size: 24px;
+}
 
-    .controls {
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-    }
+p {
+    text-align: justify;
+    line-height: 1.6;
+}
 
-    .control-btn {
-        width: 12px;
-        height: 12px;
-        margin: 0 5px;
-        background-color: rgba(0, 0, 0, 0.5);
-        border-radius: 50%;
-        cursor: pointer;
-    }
-
-    input[type="radio"] {
-        display: none;
-    }
-
-    #slide1:checked ~ .slides {
-        transform: translateX(0);
-    }
-
-    #slide2:checked ~ .slides {
-        transform: translateX(-300px);
-    }
-
-    #slide3:checked ~ .slides {
-        transform: translateX(-600px);
-    }
-
-    #slide4:checked ~ .slides {
-        transform: translateX(-900px);
-    }
-
-    #slide5:checked ~ .slides {
-        transform: translateX(-1200px);
-    }
-
-    #slide6:checked ~ .slides {
-        transform: translateX(-1500px);
-    }
-
-    #slide1:checked ~ .controls label:nth-child(1),
-    #slide2:checked ~ .controls label:nth-child(2),
-    #slide3:checked ~ .controls label:nth-child(3),
-    #slide4:checked ~ .controls label:nth-child(4),
-    #slide5:checked ~ .controls label:nth-child(5),
-    #slide6:checked ~ .controls label:nth-child(6) {
-        background-color: #fff;
-    }
+/* Gaya untuk roleNote */
+.roleNote {
+    text-align: center;
+    font-weight: bold;
+    color: gray;
+}
